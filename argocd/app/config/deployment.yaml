@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-demo
+spec:
+  selector:
+    matchLabels:
+      app: argocd-demo
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: argocd-demo
+    spec:
+      containers:
+        - name: argocd-demo
+          image: nanajanashia/argocd-app:1.2
+          ports:
+            - containerPort: 8080
+
