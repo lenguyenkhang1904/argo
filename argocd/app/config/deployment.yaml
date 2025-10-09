@@ -27,7 +27,7 @@ spec:
                   name: myapp-secrets
                   key: DB_PASSWORD
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://mydb-service.demo.svc.cluster.local:5432/mydb
+              value: jdbc:postgresql://mydb-service.demo.svc.cluster.local:5432/postgres
           ports:
             - containerPort: 8080
 
