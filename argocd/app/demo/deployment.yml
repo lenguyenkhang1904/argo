@@ -17,5 +17,18 @@ spec:
       containers:
       - name: spring-boot-app
         image: marxkhang/sha256:44b5b1c30962
+        env:
+          - name: USERNAME_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: myapp-secrets
+                key: DB_USERNAME
+          - name: PASSWORD_DATABASE
+            valueFrom:
+              secretKeyRef:
+                name: myapp-secrets
+                key: DB_PASSWORD
+          - name: URL_DATABASE
+            value: postgresql.postgres.svc.cluster.local
         ports:
         - containerPort: 8080
