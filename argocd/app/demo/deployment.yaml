@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: spring-boot-app
-        image: marxkhang/sha256:202510
+        image: marxkhang/sha256:e16c78af552a
         env:
           - name: USERNAME_DATABASE
             valueFrom:
