@@ -23,12 +23,18 @@ spec:
               secretKeyRef:
                 name: myapp-secrets
                 key: DB_USERNAME
+
           - name: PASSWORD_DATABASE
             valueFrom:
               secretKeyRef:
                 name: myapp-secrets
                 key: DB_PASSWORD
+
           - name: URL_DATABASE
-            value: postgresql.postgres.svc.cluster.local
+            valueFrom:
+              configMapKeyRef:
+                name: app-config
+                key: URL_DATABASE
+
         ports:
         - containerPort: 8080
