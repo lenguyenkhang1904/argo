@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: spring-boot-app
+  namespace: argocd-demo
+spec:
+  serviceName: spring-boot-app   # 👈 must match the headless Service name
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot-app
+  template:
+    metadata:
+      labels:
+        app: spring-boot-app
+    spec:
+      containers:
+        - name: spring-boot-app
+          image: nginx:alpine
+          ports:
+            - containerPort: 8080
